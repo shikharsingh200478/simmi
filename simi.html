@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simran — Eternal Supreme Edition</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Georgia, serif;
+            overflow: hidden;
+            color: white;
+        }
+
+        canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 0;
+        }
+
+        .page {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            display: none;
+            flex-direction: column;
+            text-align: center;
+            padding: 40px 40px 100px 40px;
+            /* extra bottom padding so content doesn't cover button */
+            justify-content: flex-start;
+            align-items: center;
+            z-index: 2;
+            overflow-y: auto;
+            /* allows scroll if paragraph is too long */
+        }
+
+        .active {
+            display: flex;
+            animation: fade 1.5s;
+        }
+
+        @keyframes fade {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        .title {
+            font-size: 55px;
+            text-shadow: 0 0 20px red, 0 0 60px pink;
+        }
+
+        .text {
+            font-size: 20px;
+            max-width: 850px;
+            line-height: 1.9;
+            background: rgba(0, 0, 0, 0.4);
+            padding: 25px;
+            border-radius: 20px;
+            margin-bottom: 30px;
+        }
+
+        .photo {
+            max-width: 320px;
+            width: 90%;
+            border-radius: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 0 30px rgba(255, 0, 80, 0.8);
+            animation: fade 2s;
+            transition: transform 0.4s;
+        }
+
+        .photo:hover {
+            transform: scale(1.05);
+        }
+
+        button {
+            position: sticky;
+            bottom: 20px;
+            /* stays visible at bottom of page */
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 15px 35px;
+            border: none;
+            border-radius: 30px;
+            font-size: 18px;
+            background: linear-gradient(45deg, #ff004c, #ff4d6d);
+            color: white;
+            cursor: pointer;
+            box-shadow: 0 0 20px red;
+            z-index: 10;
+        }
+
+        .contract {
+            max-width: 850px;
+            background: rgba(255, 0, 60, 0.1);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 0 40px red;
+            margin-bottom: 80px;
+        }
+
+        input {
+            padding: 15px;
+            border-radius: 20px;
+            border: none;
+            font-size: 18px;
+        }
+
+        .heart {
+            position: absolute;
+            top: -10px;
+            animation: fall linear infinite;
+            font-size: 25px;
+            /* bigger hearts for dreamy effect */
+            opacity: 0.8;
+        }
+
+        @keyframes fall {
+            to {
+                transform: translateY(110vh);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- PASSWORD PAGE -->
+    <div class="page active" id="page0">
+        <h1 class="title">Simran's Eternal Supreme Universe</h1>
+        <p class="text">Only one person belongs here <br>
+            To verify that this is my baby enter the password. <br><br>
+            (Hint: which song will play when you come to see me after your family beats the shit out of me??)</p>
+        <input type="password" id="pass" placeholder="Enter password">
+        <button onclick="login()">Enter</button>
+    </div>
+
+    <!-- PAGE 1 -->
+    <div class="page" id="page1">
+        <h1 class="title">Simran</h1>
+        <img id="img1" class="photo">
+        <p class="text">Before you came into my life, everything felt ordinary, predictable, and quiet.
+            But the moment our paths crossed, my world burst into color like the first light of dawn.
+            Your laughter became the melody I never knew I needed, and your smile, the sunshine I always sought.
+            Every glance from you feels like a secret only my heart can understand.
+            With you, even the simplest moments feel magical, like a scene from a dream.
+            I never believed in fate until I met you, and now I can’t imagine a life without you.
+            You are my first thought in the morning and my last whisper at night.</p>
+        <button onclick="next()">Next</button>
+    </div>
+
+    <!-- PAGE 2 -->
+    <div class="page" id="page2">
+        <img id="img2" class="photo">
+        <p class="text">I love the way you move, the way you laugh, the way you care so deeply.
+            Every detail about you is etched in my memory, from the curve of your smile to the softness of your touch.
+            Your warmth makes every place feel like home, no matter where we are.
+            I could spend a thousand lifetimes exploring the beauty of you and still find something new.
+            Being near you makes me forget the world, and yet, I feel like I belong everywhere as long as you’re there.
+            You are my calm in the storm, my peace in chaos, my forever in every heartbeat.
+            I wish I could pause every perfect moment with you, just to hold it close forever..</p>
+        <button onclick="next()">Next</button>
+    </div>
+
+    <!-- PAGE 3 -->
+    <div class="page" id="page3">
+        <img id="img3" class="photo">
+        <p class="text">I don’t think you understand how much I crave your presence. The warmth of your hug, the
+            softness of your voice, the way your eyes sparkle when you’re happy—it’s addictive. I catch myself smiling
+            randomly, thinking about you, and I don’t want to stop. I want to be the first person you think about when
+            you wake up and the last when you go to sleep. You make everything brighter, softer, and infinitely more
+            beautiful. You’re my safe place, my home, my everything, and I’m hopelessly, completely yours.</p>
+        <button onclick="next()">Next</button>
+    </div>
+
+    <!-- PAGE 4 -->
+    <div class="page" id="page4">
+        <img id="img4" class="photo">
+        <p class="text">Sometimes I just sit and imagine a life where it’s only us. No noise, no worries—just your hand
+            in mine and your laughter filling the air. I want to wake up beside you every day, see your sleepy smile,
+            and tell you how much you mean to me. Even the simplest moments, like random walks or drives
+            together, feel like precious memories etched in my soul. You’ve turned ordinary days into magical
+            adventures, and I want to spend every moment showing you how much I adore you.</p>
+        <button onclick="next()">Next</button>
+    </div>
+
+    <!-- PAGE 5 -->
+    <div class="page" id="page5">
+        <img id="img5" class="photo">
+        <p class="text">Every little thing you do makes me fall for you even more. The way you fix your glasses while
+            studying, the way your eyes light up when you’re excited, the way your laughter echoes in my mind
+            long after you’ve stopped—it’s all addictive. I find myself imagining a life where every day is a reason to
+            love you more. I want to build memories with you, laugh endlessly with you, and hold you tight during every
+            storm. You’re not just my love; you’re my dream come true</p>
+        <button onclick="next()">Next</button>
+    </div>
+
+    <!-- PAGE 6 -->
+    <div class="page" id="page6">
+        <img id="img6" class="photo">
+        <p class="text">Sometimes I wonder if you realize how important you are to me. You’re the reason my heart beats
+            faster, my thoughts feel warmer, and my world feels brighter. When I look at you, I see everything I’ve ever
+            wanted. You’ve become my best friend, my confidant, my partner in every sense. I never want to let go, and I
+            never want to be without you. You’ve changed my life in ways I didn’t know were possible, and every day I
+            thank the universe for bringing you to me.</p>
+        <button onclick="next()">Next</button>
+    </div>
+
+    <!-- PAGE 7 -->
+    <div class="page" id="page7">
+        <img id="img7" class="photo">
+        <p class="text">Since you came into my life, everything has changed in the most beautiful ways. Your love has
+            made me kinder, calmer, and more patient. I smile more, appreciate the little things, and feel a peace I
+            never knew before. You’ve taught me to see the world through softer eyes and to cherish every moment. I feel
+            stronger, yet gentler; happier, yet more grounded. All the good in me now is because of you—you’ve shaped my
+            heart, my mind, and my soul in ways I’ll forever be grateful for. Simply put, you’ve made me a better
+            person, and I owe it all to you. </p>
+        <button onclick="next()">Next</button>
+    </div>
+
+    <!-- PAGE 8 -->
+    <div class="page" id="page8">
+        <img id="img8" class="photo">
+        <p class="text">I want you to know that no matter what, I’ll always be here for you. Through every high, every
+            low, every tiny moment in between—I’ll be by your side. I’ll love you endlessly, obsessively, and
+            completely. You’ve captured my heart, my soul, and every piece of me, and I never want it back. You are my
+            happiness, my obsession, my forever, and I can’t wait to spend a lifetime showing you how deeply, fiercely,
+            and infinitely I love you.</p>
+        <button onclick="next()">Next</button>
+    </div>
+
+    <!-- CONTRACT PAGE WITH SIGNATURE -->
+    <div class="page" id="page9">
+        <h1 class="title">Infinity Contract</h1>
+        <div class="contract">
+            <p>By agreeing, you accept unlimited cuddles, kisses, hugs, love, protection, and forever.</p>
+            <p>Sign here:</p>
+            <canvas id="signature" width="500" height="200"
+                style="border:2px solid white; border-radius:10px;"></canvas>
+            <br>
+            <button onclick="clearSignature()">Clear Signature</button>
+            <br><br>
+            <button onclick="sign()">Agree</button>
+        </div>
+    </div>
+
+    <!-- PREMIUM PAGE -->
+    <div class="page" id="page10">
+        <h1 class="title">🎉 Congratulations! 🎉</h1>
+        <p class="text"> by signing this contract you have agreed for... <br><br>
+            premium membership of my lifee!!! <br>
+            unlimited and sweeeterrr kisses!!! <br>
+            unlimited cozyy cuddles!! <br>
+            warmerr hugsss <br>
+            lovelyyyy talkssssss <br>
+
+
+        </p>
+        <button onclick="next()">Next</button>
+    </div>
+
+    <!-- DATE ASK PAGE -->
+    <div class="page" id="page11">
+        <h1 class="title">We couldn't celebrate earlier…</h1>
+        <p class="text"> unfortunately we wont be able to celebrate this valentines together. but...but...but
+            Would you like to go on a date with me after our exams???</p>
+        <button onclick="dateYes()">Yes ❤️</button>
+        <button onclick="dateNo()" style="position:absolute; top:50%; left:50%; transform:translate(-50%, -50%)">No
+            ❌</button>
+    </div>
+
+    <!-- FINAL PAGE -->
+    <div class="page" id="page12">
+        <h1 class="title"> <br><br>I LOVE YOU SOOO SOOOO MUCHHHHHH SIMRANNNN!!!!!❤️❤️ ❤️ ❤️ ❤️ ❤️ ❤️ ❤️ ❤️❤️
+            ❤️ ❤️ ❤️ ❤️ ❤️ ❤️ ❤️ ❤️ ❤️ ❤️ ❤️ ❤️ ❤️ ❤️ ❤️ ❤️ ❤️
+            ❤️❤️</h1>
+    </div>
+
+    <!-- SCRIPT -->
+    <script>
+        // PHOTOS
+        const photo1 = "/Users/harshsingh/Desktop/shikhar/img111.JPG", photo2 = "/Users/harshsingh/Desktop/shikhar/IMG-20250831-WA0021.JPG", photo3 = "/Users/harshsingh/Desktop/shikhar/Screenshot_2025-08-25-00-09-31-94_965bbf4d18d205f782c6b8409c5773a4.jpg", photo4 = "/Users/harshsingh/Desktop/shikhar/IMG_20240913_013547.JPG",
+            photo5 = "/Users/harshsingh/Desktop/shikhar/896e3163-cfa6-48c6-903c-d5533e481f98.JPG", photo6 = "/Users/harshsingh/Desktop/shikhar/fifth.JPG", photo7 = "/Users/harshsingh/Desktop/shikhar/img1200.PNG", photo8 = "/Users/harshsingh/Desktop/shikhar/img120.JPG";
+        document.getElementById("img1").src = photo1; document.getElementById("img2").src = photo2; document.getElementById("img3").src = photo3; document.getElementById("img4").src = photo4;
+        document.getElementById("img5").src = photo5; document.getElementById("img6").src = photo6; document.getElementById("img7").src = photo7; document.getElementById("img8").src = photo8;
+        document.getElementById("img1").src = photo1;
+        document.getElementById("img2").src = photo2;
+        document.getElementById("img3").src = photo3;
+        document.getElementById("img4").src = photo4;
+        document.getElementById("img5").src = photo5;
+        document.getElementById("img6").src = photo6;
+        document.getElementById("img7").src = photo7;
+        document.getElementById("img8").src = photo8;
+
+        // MUSIC
+        let audio = new Audio("mera mann.mp3");
+        audio.loop = true;
+
+        // PAGE NAVIGATION
+        let current = 0;
+        function login() {
+            if (document.getElementById("pass").value === "samjhawan") {
+                show(1);
+                audio.play().catch(() => { alert("Click anywhere on page to start music"); });
+            }
+        }
+        function show(n) {
+            document.getElementById("page" + current).classList.remove("active");
+            current = n;
+            document.getElementById("page" + current).classList.add("active");
+        }
+        function next() { show(current + 1); }
+
+        // HEARTS
+        setInterval(() => {
+            let h = document.createElement("div");
+            h.innerHTML = "❤️";
+            h.className = "heart";
+            h.style.left = Math.random() * 100 + "vw";
+            h.style.animationDuration = (Math.random() * 3 + 2) + "s";
+            document.body.appendChild(h);
+            setTimeout(() => h.remove(), 5000);
+        }, 300);
+
+        // STARRY BACKGROUND WITH BLUEISH TONE
+        let canvas = document.createElement("canvas");
+        canvas.id = "universe";
+        document.body.appendChild(canvas);
+        let ctx = canvas.getContext("2d");
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        // create gradient background
+        let gradient = ctx.createLinearGradient(0, 0, 0, canvas.height);
+        gradient.addColorStop(0, "#001a33"); // deep bluish top
+        gradient.addColorStop(1, "#000011"); // darker bottom
+        ctx.fillStyle = gradient;
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+        let stars = [];
+        for (let i = 0; i < 300; i++) stars.push({ x: Math.random() * canvas.width, y: Math.random() * canvas.height });
+        function animate() {
+            ctx.fillStyle = gradient;
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            ctx.fillStyle = "white";
+            stars.forEach(s => ctx.fillRect(s.x, s.y, 2, 2));
+            // Moon
+            ctx.beginPath();
+            ctx.arc(100, 100, 50, 0, Math.PI * 2);
+            let moonGlow = ctx.createRadialGradient(100, 100, 15, 100, 100, 80);
+            moonGlow.addColorStop(0, "rgba(255,255,210,0.9)");
+            moonGlow.addColorStop(1, "rgba(255,255,210,0)");
+            ctx.fillStyle = moonGlow;
+            ctx.fill();
+            ctx.fillStyle = "rgba(255,255,210,1)";
+            ctx.beginPath();
+            ctx.arc(100, 100, 50, 0, Math.PI * 2);
+            ctx.fill();
+
+            requestAnimationFrame(animate);
+        }
+        animate();
+
+        // SIGNATURE PAD
+        let sigCanvas = document.getElementById("signature");
+        let sigCtx = sigCanvas.getContext("2d");
+        let drawing = false;
+        sigCanvas.addEventListener("mousedown", (e) => { drawing = true; sigCtx.beginPath(); sigCtx.moveTo(e.offsetX, e.offsetY); });
+        sigCanvas.addEventListener("mousemove", (e) => { if (drawing) { sigCtx.lineTo(e.offsetX, e.offsetY); sigCtx.strokeStyle = "white"; sigCtx.lineWidth = 3; sigCtx.stroke(); } });
+        sigCanvas.addEventListener("mouseup", () => { drawing = false; });
+        sigCanvas.addEventListener("mouseleave", () => { drawing = false; });
+        sigCanvas.addEventListener("touchstart", (e) => {
+            e.preventDefault();
+            drawing = true;
+            let touch = e.touches[0];
+            let rect = sigCanvas.getBoundingClientRect();
+            sigCtx.beginPath();
+            sigCtx.moveTo(touch.clientX - rect.left, touch.clientY - rect.top);
+        });
+        sigCanvas.addEventListener("touchmove", (e) => {
+            e.preventDefault();
+            if (drawing) {
+                let touch = e.touches[0];
+                let rect = sigCanvas.getBoundingClientRect();
+                sigCtx.lineTo(touch.clientX - rect.left, touch.clientY - rect.top);
+                sigCtx.strokeStyle = "white";
+                sigCtx.lineWidth = 3;
+                sigCtx.stroke();
+            }
+        });
+        sigCanvas.addEventListener("touchend", () => { drawing = false; });
+        function clearSignature() { sigCtx.clearRect(0, 0, sigCanvas.width, sigCanvas.height); }
+        function sign() {
+            let empty = !sigCtx.getImageData(0, 0, sigCanvas.width, sigCanvas.height).data.some(v => v !== 0);
+            if (empty) { alert("Please sign the contract before agreeing!"); return; }
+            if (confirm("Are you sure? There's no going back.")) { next(); }
+        }
+
+        // DATE PAGE
+        function dateNo() {
+            let btn = event.target;
+            btn.style.top = Math.random() * 80 + "%";
+            btn.style.left = Math.random() * 80 + "%";
+        }
+        function dateYes() {
+            show(12);
+            // Fireworks effect
+            let fireworksCanvas = document.createElement("canvas");
+            fireworksCanvas.style.position = "fixed";
+            fireworksCanvas.style.top = 0;
+            fireworksCanvas.style.left = 0;
+            fireworksCanvas.style.width = "100%";
+            fireworksCanvas.style.height = "100%";
+            fireworksCanvas.style.zIndex = 5;
+            document.body.appendChild(fireworksCanvas);
+            let fCtx = fireworksCanvas.getContext("2d");
+            let particles = [];
+            function fireworks() {
+                fCtx.clearRect(0, 0, fireworksCanvas.width, fireworksCanvas.height);
+                if (particles.length < 100) {
+                    for (let i = 0; i < 5; i++) {
+                        particles.push({
+                            x: Math.random() * fireworksCanvas.width,
+                            y: Math.random() * fireworksCanvas.height,
+                            r: Math.random() * 3 + 2,
+                            dx: (Math.random() - 0.5) * 10,
+                            dy: (Math.random() - 0.5) * 10,
+                            color: `hsl(${Math.random() * 360},100%,50%)`
+                        });
+                    }
+                }
+                particles.forEach(p => {
+                    p.x += p.dx;
+                    p.y += p.dy;
+                    p.dy += 0.05;
+                    fCtx.beginPath();
+                    fCtx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+                    fCtx.fillStyle = p.color;
+                    fCtx.fill();
+                });
+                requestAnimationFrame(fireworks);
+            }
+            fireworks();
+        }
+
+    </script>
+
+</body>
+
+</html>
